@@ -2,6 +2,9 @@
 
 Safety monitoring system for mountain hikers with H3 spatial indexing.
 
+Muslima Kosmagambetova - 230103269
+Altynai Nazik - 230103323
+
 ## How to Run
 
 ### 1. Install dependencies
