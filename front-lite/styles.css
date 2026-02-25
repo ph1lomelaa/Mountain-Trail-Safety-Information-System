@@ -1,0 +1,324 @@
+:root {
+  --bg: #f5f7fb;
+  --panel: #ffffff;
+  --line: #d8dde9;
+  --text: #1e2738;
+  --muted: #6b7486;
+  --primary: #0a66c2;
+  --primary-ink: #ffffff;
+  --success: #148a41;
+  --danger: #cf2e2e;
+  --warning: #d08f1f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  padding: 12px;
+  border-right: 1px solid var(--line);
+  overflow: auto;
+}
+
+.main {
+  padding: 12px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 10px;
+  min-height: 100vh;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.brand p {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+section.panel {
+  margin-top: 10px;
+}
+
+section.panel h2 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.stack {
+  display: grid;
+  gap: 8px;
+}
+
+.field {
+  display: grid;
+  gap: 4px;
+}
+
+.field span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input,
+select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #fff;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #b8d6f5;
+  border-color: #7fb4ea;
+}
+
+.btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-ink);
+}
+
+.btn-secondary {
+  background: #edf2fa;
+  color: #33415f;
+}
+
+.btn-warning {
+  background: #fff0d8;
+  color: #7a5200;
+}
+
+.trail-list {
+  margin-top: 10px;
+  max-height: 240px;
+  overflow: auto;
+  display: grid;
+  gap: 6px;
+}
+
+.trail-item {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  background: #fff;
+}
+
+.trail-item.active {
+  border-color: var(--primary);
+  background: #eef6ff;
+}
+
+.trail-item .name {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.trail-item .meta {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.text-muted {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.text-strong {
+  font-weight: 600;
+}
+
+.session-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#myCheckinsList .checkin-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px;
+  display: grid;
+  gap: 6px;
+}
+
+.badge {
+  display: inline-flex;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badge.active {
+  background: #dff3e7;
+  color: var(--success);
+}
+
+.badge.overdue {
+  background: #fce5e5;
+  color: var(--danger);
+}
+
+.badge.returned {
+  background: #eceff5;
+  color: #59627a;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.toggles {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #1e2738;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #c7d4ea;
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(13, 35, 67, 0.06);
+}
+
+.toggle input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: #0a66c2;
+}
+
+.toggle span {
+  color: #1e2738;
+  opacity: 1;
+}
+
+.map-wrap {
+  min-height: 520px;
+  padding: 0;
+  overflow: hidden;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+}
+
+.status {
+  font-size: 13px;
+  color: #33415f;
+}
+
+.monitor-wrap {
+  margin-top: 8px;
+  overflow: auto;
+  max-height: 220px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  padding: 6px 4px;
+}
+
+#monitorTableBody tr {
+  cursor: pointer;
+}
+
+#monitorTableBody tr:hover {
+  background: #eef6ff;
+}
+
+@media (max-width: 1100px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    max-height: 52vh;
+  }
+
+  .main {
+    min-height: auto;
+  }
+
+  .map-wrap,
+  #map {
+    min-height: 420px;
+  }
+
+  .toggle {
+    font-size: 13px;
+    padding: 7px 10px;
+  }
+}

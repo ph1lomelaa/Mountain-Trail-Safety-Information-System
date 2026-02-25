@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTSIS Lite</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <h1>MTSIS Lite</h1>
+          <p>Маршруты и безопасность</p>
+        </div>
+
+        <section class="panel">
+          <h2>Роль</h2>
+
+          <div class="stack">
+            <label class="field">
+              <span>Текущая роль</span>
+              <select id="roleSelect">
+                <option value="hiker">hiker</option>
+                <option value="ranger">ranger</option>
+                <option value="admin">admin</option>
+              </select>
+            </label>
+            <button id="applyRoleBtn" class="btn btn-primary" type="button">Применить роль</button>
+          </div>
+
+          <div class="session-row">
+            <div id="userName" class="text-strong">-</div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Маршруты</h2>
+          <div class="stack">
+            <label class="field">
+              <span>Поиск</span>
+              <input id="trailSearchInput" type="search" placeholder="Название или H3" />
+            </label>
+            <label class="field">
+              <span>Сложность</span>
+              <select id="difficultyFilter">
+                <option value="all">Все</option>
+                <option value="easy">Легкий</option>
+                <option value="moderate">Средний</option>
+                <option value="hard">Сложный</option>
+                <option value="extreme">Экстремальный</option>
+              </select>
+            </label>
+          </div>
+
+          <div id="trailList" class="trail-list"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Выбранный маршрут</h2>
+          <div id="selectedTrailEmpty" class="text-muted">Выберите маршрут из списка.</div>
+          <div id="selectedTrailContent" class="hidden stack">
+            <div>
+              <div id="selectedTrailName" class="text-strong"></div>
+              <div id="selectedTrailMeta" class="text-muted"></div>
+            </div>
+
+            <label class="field">
+              <span>Ожидаемое возвращение</span>
+              <input id="expectedReturnInput" type="datetime-local" />
+            </label>
+
+            <label class="field">
+              <span>Телефон туриста</span>
+              <input id="phoneInput" type="tel" placeholder="+7 777 000 00 00" />
+            </label>
+
+            <button id="startRouteBtn" class="btn btn-primary">Начать маршрут</button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Мои check-ins</h2>
+          <div id="myCheckinsList" class="stack"></div>
+        </section>
+
+        <section class="panel hidden" id="monitorPanel">
+          <h2>Мониторинг (ranger/admin)</h2>
+          <button id="triggerOverdueBtn" class="btn btn-warning">Отметить overdue</button>
+          <div class="monitor-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Check-in</th>
+                  <th>User</th>
+                  <th>Маршрут</th>
+                  <th>Телефон</th>
+                  <th>Expected</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="monitorTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </aside>
+
+      <main class="main">
+        <header class="topbar panel">
+          <div class="toggles">
+            <label class="toggle">
+              <input id="toggleH3" type="checkbox" />
+              <span>H3 сетка</span>
+            </label>
+            <label class="toggle">
+              <input id="togglePois" type="checkbox" />
+              <span>POI</span>
+            </label>
+            <label class="toggle">
+              <input id="toggleCheckins" type="checkbox" />
+              <span>Туристы</span>
+            </label>
+          </div>
+          <button id="refreshBtn" class="btn btn-secondary">Обновить данные</button>
+        </header>
+
+        <section class="map-wrap panel">
+          <div id="map"></div>
+        </section>
+
+        <footer class="status panel">
+          <div id="statusText">Готово</div>
+        </footer>
+      </main>
+    </div>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
