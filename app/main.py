@@ -7,6 +7,8 @@ from app.routers import (
     pois_router,
     safety_router,
     h3_router,
+    audit_router,
+    events_router,
 )
 from app.services.demo_seed import ensure_demo_users
 from app.services.checkin_cells import backfill_missing_checkin_cells
@@ -33,6 +35,8 @@ app.include_router(trails_router.router)
 app.include_router(pois_router.router)
 app.include_router(safety_router.router)
 app.include_router(h3_router.router)
+app.include_router(audit_router.router)
+app.include_router(events_router.router)
 
 
 @app.on_event("startup")

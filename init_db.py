@@ -106,6 +106,16 @@ CREATE TABLE audit_log (
     created_at TEXT NOT NULL
 );
 
+CREATE TABLE h3_analytics (
+    h3_index TEXT PRIMARY KEY,
+    resolution INTEGER NOT NULL,
+    total_trails INTEGER DEFAULT 0,
+    total_pois INTEGER DEFAULT 0,
+    total_checkins INTEGER DEFAULT 0,
+    total_events INTEGER DEFAULT 0,
+    last_updated TEXT
+);
+
 CREATE INDEX idx_trails_h3 ON trails(h3_index);
 CREATE INDEX idx_pois_h3 ON pois(h3_index);
 CREATE INDEX idx_checkins_h3 ON safety_checkins(h3_index);

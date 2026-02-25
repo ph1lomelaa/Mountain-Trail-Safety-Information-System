@@ -58,3 +58,36 @@ class SafetyCheckinOut(BaseModel):
     h3_index: str
     checked_in_at: str
     checked_out_at: Optional[str]
+
+
+class EventOut(BaseModel):
+    id: int
+    title: str
+    description: Optional[str]
+    event_date: str
+    location_lat: float
+    location_lng: float
+    h3_index: str
+    trail_id: Optional[int]
+    max_participants: Optional[int]
+    created_at: str
+
+
+class EventCreate(BaseModel):
+    title: str
+    description: Optional[str] = None
+    event_date: str
+    location_lat: float
+    location_lng: float
+    trail_id: Optional[int] = None
+    max_participants: Optional[int] = None
+
+
+class AuditLogOut(BaseModel):
+    id: int
+    user_id: Optional[int]
+    action: str
+    entity_type: str
+    entity_id: Optional[int]
+    details: Optional[str]
+    created_at: str

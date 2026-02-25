@@ -14,6 +14,7 @@ PERMISSIONS = {
         "safety:checkin",
         "safety:checkout_self",
         "h3:read",
+        "events:read",
     ],
     "ranger": [
         "trails:read",
@@ -24,6 +25,7 @@ PERMISSIONS = {
         "safety:checkout_any",
         "safety:trigger_overdue",
         "h3:read",
+        "events:read",
     ],
     "admin": [
         "trails:read",
@@ -34,6 +36,9 @@ PERMISSIONS = {
         "safety:checkout_any",
         "safety:trigger_overdue",
         "h3:read",
+        "events:read",
+        "events:write",
+        "audit:read",
     ],
 }
 
